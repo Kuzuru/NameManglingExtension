@@ -1,0 +1,31 @@
+{
+  "name": "VKUsernameManglingExtension",
+  "description": "Goohle Chrome extension for mangling vk.com username. Made by software engineer student for all other students. I need another 20 characters to fit into the rules",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon":  {
+      "16": "/images/eggiz16x16.png",
+      "32": "/images/eggiz32x32.png",
+      "48": "/images/eggiz48x48.png",
+      "128": "/images/eggiz128x128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/eggiz16x16.png",
+    "32": "/images/eggiz32x32.png",
+    "48": "/images/eggiz48x48.png",
+    "128": "/images/eggiz128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/*"],
+      "js": ["mangle.js"]
+    }
+  ] 
+}
