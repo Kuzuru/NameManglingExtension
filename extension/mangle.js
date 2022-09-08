@@ -4,8 +4,7 @@ function mangle() {
         ._im_page_peer_name, 
         .im-mess-stack--lnk,
         .im-replied--author-link, 
-        ._im_replied_author_link,
-        .author`)
+        ._im_replied_author_link`)
 
     let dialogListNameElements = Array
         .from(document.querySelectorAll(".nim-dialog"))
@@ -17,10 +16,15 @@ function mangle() {
         .filter(e => e.getAttribute("data-list-id") < 2000000000)
         .map(e => e.querySelector(".im-right-menu--text"))
 
+    let authorNameElements = Array
+        .from(document.querySelectorAll(".author"))
+        .filter(e => e.getAttribute("data-from-id") > 0)
+
     let nameElements = Array
         .from(nameElementsAll)
         .concat(dialogListNameElements)
         .concat(sidebarListNameElements)
+        .concat(authorNameElements)
         .filter(e => e.getAttribute("data-mangled") !== "true")
 
     let mangleName = (name) => {
