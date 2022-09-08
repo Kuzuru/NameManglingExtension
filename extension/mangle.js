@@ -1,13 +1,15 @@
 let lastRun = 0
 
 function mangle() {
-    let nameElements1 = document.body.getElementsByClassName("_im_dialog_link")
-    let nameElements2 = document.body.getElementsByClassName("im-page--title-main-inner _im_page_peer_name")
-    let nameElements3 = document.body.getElementsByClassName("im-mess-stack--lnk")
+    let nameElementsAll = document.querySelectorAll(`
+        ._im_dialog_link, 
+        .im-page--title-main-inner, 
+        ._im_page_peer_name, 
+        .im-mess-stack--lnk,
+        .im-replied--author-link, 
+        ._im_replied_author_link`)
     let nameElements = Array
-        .from(nameElements1)
-        .concat(Array.from(nameElements2))
-        .concat(Array.from(nameElements3))
+        .from(nameElementsAll)
         .filter(e => e.getAttribute("data-mangled") !== "true")
 
     let mangleName = (name) => {
