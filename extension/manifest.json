@@ -1,7 +1,7 @@
 {
   "name": "VKUsernameManglingExtension",
   "description": "Goohle Chrome extension for mangling vk.com username. Made by software engineer student for all other students. I need another 20 characters to fit into the rules",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
